@@ -1,17 +1,29 @@
 {
-  "name": "GithubTest",
+  "name": "github-test",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --reset-cache",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "prettier": "prettier --config ./.prettierrc.js --ignore-path ./.gitignore --write . -c"
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/native": "^5.8.10",
+    "@reduxjs/toolkit": "^1.5.0",
+    "@types/styled-components": "^5.1.4",
+    "axios": "^0.21.0",
     "react": "16.13.1",
-    "react-native": "0.63.3"
+    "react-native": "0.63.3",
+    "react-native-gesture-handler": "^1.9.0",
+    "react-native-reanimated": "^1.13.2",
+    "react-native-safe-area-context": "^3.1.9",
+    "react-native-screens": "^2.15.0",
+    "react-redux": "^7.2.2",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -24,8 +36,11 @@
     "@typescript-eslint/parser": "^2.27.0",
     "babel-jest": "^25.1.0",
     "eslint": "^6.5.1",
+    "husky": ">=4",
     "jest": "^25.1.0",
+    "lint-staged": ">=10",
     "metro-react-native-babel-preset": "^0.59.0",
+    "prettier": "^2.2.1",
     "react-test-renderer": "16.13.1",
     "typescript": "^3.8.3"
   },
@@ -39,5 +54,14 @@
       "json",
       "node"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,app,lib}/**/*.{js,jsx,ts,tsx}": "yarn run lint",
+    "*.{js,css,md}": "yarn run prettier"
   }
 }

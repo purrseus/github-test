@@ -1,6 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-
-const BASE_URL: string = 'https://api.github.com';
+import { BASE_URL } from 'constants/index';
 
 const ConnectionInstance: AxiosInstance = axios.create({
   timeout: 20000,

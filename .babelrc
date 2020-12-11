@@ -10,7 +10,7 @@
           "constants": "./src/constants",
           "hooks": "./src/hooks",
           "navigators": "./src/navigators",
-          "redux": "./src/redux",
+          "app-redux": "./src/app-redux",
           "screens": "./src/screens",
           "services": "./src/services"
         }

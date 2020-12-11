@@ -1,34 +1,22 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { useSelector } from 'react-redux';
-import { RootState } from 'redux/store';
 import SearchInput from 'components/SearchInput';
+import InfoUser from 'components/InfoUser';
+import { useSelector } from 'react-redux';
+import { RootState } from 'app-redux/store';
 
 const Container = styled.View`
   flex: 1;
-  margin-horizontal: 15px;
-`;
-
-const Text = styled.Text`
-  font-size: 20px;
-  color: gray;
-  font-family: '';
+  margin-horizontal: 20px;
 `;
 
 const Home = () => {
-  const userState = useSelector((state: RootState) => state.user);
+  const { user } = useSelector((state: RootState) => state.user);
 
   return (
     <Container>
       <SearchInput />
-      {userState.user?.name ? (
-        <>
-          <Text>{userState.user?.name}</Text>
-          <Text>{userState.user?.login}</Text>
-        </>
-      ) : (
-        <Text>{userState.user.message}</Text>
-      )}
+      {user.login && <InfoUser />}
     </Container>
   );
 };

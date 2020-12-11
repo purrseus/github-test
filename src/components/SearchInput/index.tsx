@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { TextInput, TouchableWithoutFeedback } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from 'redux/store';
-import { fetchInfoUser } from 'redux/slices/user.slice';
+import { AppDispatch } from 'app-redux/store';
+import { fetchInfoUser } from 'app-redux/slices/user.slice';
 import { Container, SearchTextInput, ClearTextIcon } from './styled';
 import { RemoveIcon } from 'assets/icons/index';
 
@@ -27,6 +27,11 @@ const SearchInput = () => {
     text.length ? setIsHideIcon(false) : setIsHideIcon(true);
   };
 
+  const onClearText = () => {
+    inputRef?.current?.clear();
+    setIsHideIcon(true);
+  };
+
   return (
     <Container>
       <SearchTextInput
@@ -40,12 +45,7 @@ const SearchInput = () => {
         }
       />
       {!isHideIcon && (
-        <TouchableWithoutFeedback
-          onPress={() => {
-            inputRef?.current?.clear();
-            setIsHideIcon(true);
-          }}
-        >
+        <TouchableWithoutFeedback onPress={onClearText}>
           <ClearTextIcon source={RemoveIcon} />
         </TouchableWithoutFeedback>
       )}

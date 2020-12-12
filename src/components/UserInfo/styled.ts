@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex-direction: row;
-  margin-vertical: 10px;
+  padding-vertical: 15px;
 `;
 
 export const Avatar = styled.Image`
@@ -19,7 +19,7 @@ export const NameCard = styled.View`
 
 export const FullName = styled.Text`
   font-family: '';
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
 `;
 

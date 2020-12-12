@@ -3,6 +3,7 @@ import { TextInput, TouchableWithoutFeedback } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from 'app-redux/store';
 import { fetchInfoUser } from 'app-redux/slices/user.slice';
+import { fetchReposOfCurrentUser } from 'app-redux/slices/repos.slice';
 import { Container, SearchTextInput, ClearTextIcon } from './styled';
 import { RemoveIcon } from 'assets/icons/index';
 
@@ -17,7 +18,10 @@ const SearchInput = () => {
     }
 
     try {
-      await dispatch(fetchInfoUser(value));
+      await Promise.all([
+        dispatch(fetchInfoUser(value)),
+        dispatch(fetchReposOfCurrentUser({ value, page: 1 })),
+      ]);
     } catch (error) {
       return error;
     }
@@ -29,6 +33,7 @@ const SearchInput = () => {
 
   const onClearText = () => {
     inputRef?.current?.clear();
+    inputRef?.current?.focus();
     setIsHideIcon(true);
   };
 

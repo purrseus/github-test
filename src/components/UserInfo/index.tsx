@@ -10,23 +10,24 @@ import {
   Repositories,
 } from './styled';
 
-const InfoUser = () => {
+const UserInfo = () => {
   const { user } = useSelector((state: RootState) => state.user);
+  const { repos } = useSelector((state: RootState) => state.repos);
 
   return (
     <Container>
-      <Avatar source={{ uri: user.avatar_url }} />
+      <Avatar source={{ uri: user?.avatar_url }} />
 
       <NameCard>
-        <FullName>{user.name}</FullName>
+        <FullName>{user?.name}</FullName>
         <UserName ellipsizeMode="tail" numberOfLines={1}>
-          {user.login}
+          {user?.login}
         </UserName>
       </NameCard>
 
-      <Repositories>{user.public_repos}</Repositories>
+      <Repositories>{`${repos.length}/${user?.public_repos}`}</Repositories>
     </Container>
   );
 };
 
-export default InfoUser;
+export default UserInfo;

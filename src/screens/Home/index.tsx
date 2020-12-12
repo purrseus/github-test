@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import SearchInput from 'components/SearchInput';
-import InfoUser from 'components/InfoUser';
+import UserInfo from 'components/UserInfo';
 import { useSelector } from 'react-redux';
 import { RootState } from 'app-redux/store';
+import Repositories from 'components/Repositories';
 
 const Container = styled.View`
   flex: 1;
-  margin-horizontal: 20px;
+  padding-horizontal: 20px;
+  background-color: white;
 `;
 
 const Home = () => {
@@ -16,7 +18,12 @@ const Home = () => {
   return (
     <Container>
       <SearchInput />
-      {user.login && <InfoUser />}
+      {user?.login && (
+        <>
+          <UserInfo />
+          <Repositories />
+        </>
+      )}
     </Container>
   );
 };

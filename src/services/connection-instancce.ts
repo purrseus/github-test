@@ -20,7 +20,7 @@ ConnectionInstance.interceptors.request.use(
 ConnectionInstance.interceptors.response.use(
   (response: AxiosResponse) => {
     // console.info('API response:', response);
-    return response?.data;
+    return response;
   },
   error => {
     // console.error('API response error:', error);

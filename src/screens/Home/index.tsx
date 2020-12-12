@@ -12,6 +12,13 @@ const Container = styled.View`
   background-color: white;
 `;
 
+const Error = styled.Text`
+  font-family: '';
+  font-size: 18px;
+  text-align: center;
+  margin: 20px;
+`;
+
 const Home = () => {
   const { user } = useSelector((state: RootState) => state.user);
 
@@ -28,6 +35,7 @@ const Home = () => {
           <Repositories />
         </>
       )}
+      {user === undefined && <Error>Not Found.</Error>}
     </Container>
   );
 };

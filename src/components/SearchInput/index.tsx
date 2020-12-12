@@ -15,7 +15,7 @@ const SearchInput = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const onSubmitTextField = async (value: string) => {
-    if (!value.trim()) {
+    if (!value) {
       return;
     }
     if (!netInfo.isConnected) {
@@ -52,7 +52,7 @@ const SearchInput = () => {
         selectionColor="dodgerblue"
         onChange={({ nativeEvent }) => onHideRemoveIcon(nativeEvent.text)}
         onSubmitEditing={({ nativeEvent }) =>
-          onSubmitTextField(nativeEvent.text.toLowerCase())
+          onSubmitTextField(nativeEvent.text.trim().toLowerCase())
         }
       />
       {!isHideIcon && (

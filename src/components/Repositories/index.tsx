@@ -19,7 +19,6 @@ const Repositories = () => {
           data={repos}
           renderItem={({ item }) => <Repository item={item} />}
           keyExtractor={(item, index) => '' + index}
-          showsVerticalScrollIndicator={false}
           ListFooterComponent={() => <LoadMoreBtn />}
         />
       ) : (

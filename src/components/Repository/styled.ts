@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   border-bottom-width: 0.8px;
   border-color: lightgray;
-  padding-vertical: 15px;
+  padding: 15px 15px 0px;
   justify-content: space-around;
 `;
 
@@ -23,6 +23,7 @@ export const Description = styled.Text`
 export const Wrapper = styled.View`
   flex-direction: row;
   justify-content: space-between;
+  padding-bottom: 15px;
 `;
 
 export const RepoInfo = styled.View`
@@ -46,9 +47,25 @@ export const WrapperBtn = styled.View`
   background-color: cornflowerblue;
   padding: 5px 10px;
   border-radius: 6px;
+  width: 140px;
 `;
 
 export const LoadStargazers = styled.Text`
   font-family: '';
+  color: white;
+  text-align: center;
+`;
+
+export const LoadMoreStargazers = styled.View`
+  background-color: cornflowerblue;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 15px 60px;
+`;
+
+export const LoadMoreStargazersBtn = styled.Text`
+  font-size: 16px;
+  font-family: '';
+  text-align: center;
   color: white;
 `;

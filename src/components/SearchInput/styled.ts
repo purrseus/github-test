@@ -7,6 +7,7 @@ export const Container = styled.View`
   border-color: #aaa;
   padding-horizontal: 8px;
   margin-vertical: 5px;
+  margin-horizontal: 15px;
 `;
 
 export const SearchTextInput = styled.TextInput`

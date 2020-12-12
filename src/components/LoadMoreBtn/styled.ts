@@ -4,7 +4,7 @@ export const Wrapper = styled.View`
   border-radius: 8px;
   background-color: cornflowerblue;
   padding: 10px 20px;
-  margin-vertical: 10px;
+  margin: 10px 15px;
 `;
 
 export const LoadMore = styled.Text`

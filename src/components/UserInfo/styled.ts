@@ -2,7 +2,9 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex-direction: row;
-  padding-vertical: 15px;
+  padding: 15px;
+  border-bottom-width: 0.5px;
+  border-color: #aaa;
 `;
 
 export const Avatar = styled.Image`

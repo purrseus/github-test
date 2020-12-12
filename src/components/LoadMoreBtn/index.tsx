@@ -15,7 +15,7 @@ const LoadMoreBtn = () => {
       await dispatch(
         fetchReposOfCurrentUser({
           value: user.login,
-          page: (repos.length + 30) / 30,
+          page: repos.length / 30 + 1,
         })
       );
     }
